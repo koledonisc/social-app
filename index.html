@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Social App</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
-  <h1>Welcome to My Social Site</h1>
-  
   <div id="auth">
     <h2>Login / Sign Up</h2>
     <input id="email" type="email" placeholder="Email">
@@ -16,15 +7,24 @@
     <button onclick="login()">Login</button>
   </div>
 
-  <div id="chat" style="display:none;">
-    <h2>Friends</h2>
-    <ul id="friends"></ul>
-    <input id="message" placeholder="Type a message...">
-    <button onclick="sendMessage()">Send</button>
-    <div id="messages"></div>
+  <div id="app" style="display:none; height:100vh;">
+    <div id="friends-list">
+      <h2>Friends</h2>
+      <ul id="friends"></ul>
+      <input id="new-friend" placeholder="Friend's email">
+      <button onclick="addFriend()">Add Friend</button>
+    </div>
+
+    <div id="chat-area">
+      <h2 id="chat-with">Select a friend to chat</h2>
+      <div id="messages"></div>
+      <div id="message-box">
+        <input id="message" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendMessage()">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
   </div>
 
   <script src="https://unpkg.com/@supabase/supabase-js"></script>
   <script src="app.js"></script>
 </body>
-</html>
